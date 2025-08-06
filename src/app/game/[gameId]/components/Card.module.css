@@ -1,0 +1,15 @@
+.card {
+  border: 1px solid black;
+  padding: 1rem;
+  margin: 0.5rem;
+  width: 150px;
+  height: 200px;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.text {
+  margin-top: 1rem;
+}
