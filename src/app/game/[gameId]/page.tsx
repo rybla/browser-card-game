@@ -12,15 +12,14 @@ import { Table } from "./components/Table";
 import { Discard } from "./components/Discard";
 import { Chat } from "./components/Chat";
 import { DndContext, DragEndEvent } from "@dnd-kit/core";
+import { useParams } from "next/navigation";
+import { getPlayerId } from "@/app/player";
 
-export default function GamePage({
-  params,
-}: {
-  params: { gameId: string };
-}) {
+export default function GamePage() {
+  const { gameId } = useParams<{ gameId: string }>();
+
   const [game, setGame] = useState<GameState | undefined>(undefined);
   const [chatInput, setChatInput] = useState("");
-  const { gameId } = params;
 
   useEffect(() => {
     void do_(async () => {
@@ -44,8 +43,7 @@ export default function GamePage({
     return <div>Loading...</div>;
   }
 
-  // TODO: get the player ID from the session
-  const playerId = "player1";
+  const playerId = getPlayerId();
 
   const handleChooseDeck = () => {
     const action: GameAction = {
@@ -94,11 +92,12 @@ export default function GamePage({
         )}
         <div className={styles.players}>
           <h2>Players</h2>
-        {/* TODO: Render the UI from the perspective of the current player */}
+          {/* TODO: Render the UI from the perspective of the current player */}
           {[...game.players.values()].map((player) => (
             <div key={player.id} className={styles.player}>
               <div className={styles.playerName}>{player.name}</div>
               <Deck player={player} />
+              {/* TODO: Button that lets the player draw a card from the deck */}
               <Hand player={player} gameState={game} />
               <Table player={player} gameState={game} />
               <Discard player={player} />

@@ -10,11 +10,11 @@ import {
 } from "./engine/types";
 import { updateGame } from "./engine/game";
 
-const lobbyGames: LobbyGame[] = [];
+const lobbyGames: Map<string, LobbyGame> = new Map();
 const activeGames = new Map<string, GameState>();
 
 export async function getLobbyGames(): Promise<LobbyGame[]> {
-  return lobbyGames;
+  return Array.from(lobbyGames.values());
 }
 
 export async function submitLobbyGame(
@@ -22,7 +22,7 @@ export async function submitLobbyGame(
   playerId: string,
 ): Promise<LobbyGame> {
   const newGame = { ...lobbyGame, id: randomUUID(), players: [playerId] };
-  lobbyGames.push(newGame);
+  lobbyGames.set(newGame.id, newGame);
   return newGame;
 }
 
@@ -30,23 +30,24 @@ export async function joinLobbyGame(
   gameId: string,
   playerId: string,
 ): Promise<void> {
-  const game = lobbyGames.find((g) => g.id === gameId);
+  const game = lobbyGames.get(gameId);
   if (game && !game.players.includes(playerId)) {
     game.players.push(playerId);
   }
 }
 
-export async function getLobbyGame(gameId: string): Promise<LobbyGame | undefined> {
-  return lobbyGames.find((g) => g.id === gameId);
+export async function getLobbyGame(
+  gameId: string,
+): Promise<LobbyGame | undefined> {
+  return lobbyGames.get(gameId);
 }
 
 export async function startGame(gameId: string): Promise<GameState> {
-  const lobbyGameIndex = lobbyGames.findIndex((g) => g.id === gameId);
-  if (lobbyGameIndex === -1) {
+  const lobbyGame = lobbyGames.get(gameId);
+  if (lobbyGame === undefined) {
     throw new Error("Game not found");
   }
-  const lobbyGame = lobbyGames[lobbyGameIndex];
-  lobbyGames.splice(lobbyGameIndex, 1);
+  lobbyGames.delete(gameId);
 
   const players = new Map<PlayerId, Player>();
   for (const playerId of lobbyGame.players) {
