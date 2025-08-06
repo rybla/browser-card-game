@@ -5,9 +5,12 @@ import { do_ } from "@/utility";
 import { useEffect, useState } from "react";
 import * as server from "../server";
 import styles from "./page.module.css";
+import { getPlayerId } from "./player";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const [lobbyGames, setLobbyGames] = useState<LobbyGame[]>([]);
+  const router = useRouter();
 
   // every 1 second, update lobbyGames
   useEffect(() => {
@@ -20,12 +23,18 @@ export default function Home() {
     return () => clearInterval(intervalId);
   }, []); // Empty dependency array ensures this effect runs only once on mount
 
+  async function joinGame(gameId: string) {
+    const playerId = getPlayerId();
+    await server.joinLobbyGame(gameId, playerId);
+    router.push(`/game/${gameId}`);
+  }
+
   return (
     <div className={styles.page}>
       <div className={styles.title}>Lobby</div>
       <div className={styles.lobbyGames}>
         {lobbyGames.map((lobbyGame) => (
-          <div key={lobbyGame.id}>
+          <div key={lobbyGame.id} className={styles.lobbyGame}>
             <div className={styles.id}>{lobbyGame.id}</div>
             <div className={styles.description}>{lobbyGame.description}</div>
             <div className={styles.players}>
@@ -35,6 +44,12 @@ export default function Home() {
                 </div>
               ))}
             </div>
+            <button
+              className={styles.button}
+              onClick={() => joinGame(lobbyGame.id)}
+            >
+              Join
+            </button>
           </div>
         ))}
       </div>

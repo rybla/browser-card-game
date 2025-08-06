@@ -1,19 +1,19 @@
 "use client";
 
-import { LobbyGame } from "@/engine/types";
 import * as server from "@/server";
 import { useState } from "react";
 import styles from "./page.module.css";
+import { getPlayerId } from "../player";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
-  const [lobbyGame, setLobbyGame] = useState<Omit<LobbyGame, "id">>({
-    description: "",
-    players: [],
-  });
+  const [description, setDescription] = useState("");
+  const router = useRouter();
 
   async function submit() {
-    await server.submitLobbyGame(lobbyGame);
-    // TODO: enter a waiting state where the player waits for other players to enter their game
+    const playerId = getPlayerId();
+    const newGame = await server.submitLobbyGame({ description }, playerId);
+    router.push(`/game/${newGame.id}`);
   }
 
   return (
@@ -21,10 +21,8 @@ export default function Page() {
       <div className={styles.title}>New Game</div>
       <textarea
         className={styles.textarea}
-        value={lobbyGame.description}
-        onChange={(e) =>
-          setLobbyGame({ ...lobbyGame, description: e.target.value })
-        }
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
       />
       <button className={styles.button} onClick={() => void submit()}>
         Submit
