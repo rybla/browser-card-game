@@ -8,13 +8,58 @@ export type LobbyGame = {
 };
 
 /**
- * The entire game state
+ * A message in the game's chat
+ */
+export type ChatMessage = {
+  /** The player who sent the message. */
+  player: PlayerId;
+  /** The content of the message. */
+  message: string;
+};
+
+/**
+ * The state of a particular game
  */
 export type GameState = {
   id: string;
+  stage: GameStage;
   players: Map<PlayerId, Player>;
   cards: Map<CardId, Card>;
+  chat: ChatMessage[];
 };
+
+/**
+ * The stage of the game
+ */
+export type GameStage = "CHOOSE_DECK" | "PLAYING" | "GAME_OVER";
+
+/**
+ * An action that a player can take in the game
+ */
+export type GameAction =
+  | {
+      name: "CHOOSE_DECK";
+      payload: {
+        deck: Card[];
+      };
+    }
+  | {
+      name: "MOVE_CARD";
+      payload: {
+        card: CardId;
+        from: CardZone;
+        to: CardZone;
+      };
+    }
+  | {
+      name: "CHAT_MESSAGE";
+      payload: string;
+    };
+
+/**
+ * A place where a card can be
+ */
+export type CardZone = "deck" | "hand" | "table" | "discard";
 
 export type PlayerId = string;
 
