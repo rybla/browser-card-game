@@ -31,3 +31,7 @@ export async function joinLobbyGame(
 export async function getLobbyGame(gameId: string): Promise<LobbyGame | undefined> {
   return lobbyGames.find((g) => g.id === gameId);
 }
+
+export function resetLobbyGames() {
+  lobbyGames.length = 0;
+}
