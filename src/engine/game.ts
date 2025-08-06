@@ -1,4 +1,4 @@
-import { GameState, GameAction, Player, Card, CardZone } from "./types";
+import { GameState, GameAction, Player, Card } from "./types";
 
 /**
  * Update the game state in response to an action

@@ -1,5 +1,5 @@
 import { updateGame } from "./game";
-import { GameState, GameAction, Player, Card } from "./types";
+import { GameState, GameAction, Player } from "./types";
 import { defaultDeck } from "./cards";
 
 describe("updateGame", () => {

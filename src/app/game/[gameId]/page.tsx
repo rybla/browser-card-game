@@ -13,7 +13,11 @@ import { Discard } from "./components/Discard";
 import { Chat } from "./components/Chat";
 import { DndContext, DragEndEvent } from "@dnd-kit/core";
 
-export default function GamePage({ params }: { params: { gameId: string } }) {
+export default function GamePage({
+  params,
+}: {
+  params: { gameId: string };
+}) {
   const [game, setGame] = useState<GameState | undefined>(undefined);
   const [chatInput, setChatInput] = useState("");
   const { gameId } = params;
