@@ -54,6 +54,10 @@ export type GameAction =
   | {
       name: "CHAT_MESSAGE";
       payload: string;
+    }
+  | {
+      name: "DRAW_CARD";
+      payload: Record<string, never>;
     };
 
 /**

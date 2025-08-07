@@ -101,4 +101,35 @@ describe("updateGame", () => {
     expect(player1.deck).not.toContain(cardToMove);
     expect(player1.hand).toContain(cardToMove);
   });
+
+  it("should handle DRAW_CARD", () => {
+    // First, player 1 chooses a deck
+    const chooseDeckAction: GameAction = {
+      name: "CHOOSE_DECK",
+      payload: {
+        deck: defaultDeck,
+      },
+    };
+    let state = updateGame(initialState, chooseDeckAction, "player1");
+    let player1 = state.players.get("player1");
+    if (!player1) {
+      throw new Error("player not found");
+    }
+
+    const cardToDraw = player1.deck[0];
+
+    // Now, draw a card
+    const drawAction: GameAction = {
+      name: "DRAW_CARD",
+      payload: {},
+    };
+    state = updateGame(state, drawAction, "player1");
+    player1 = state.players.get("player1");
+    if (!player1) {
+      throw new Error("player not found");
+    }
+
+    expect(player1.deck).not.toContain(cardToDraw);
+    expect(player1.hand).toContain(cardToDraw);
+  });
 });
