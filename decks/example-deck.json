@@ -1,0 +1,17 @@
+{
+  "name": "My Awesome Deck",
+  "cards": [
+    {
+      "name": "Frosty a Snowman",
+      "text": "A snowman that is frosty."
+    },
+    {
+      "name": "A literal bear",
+      "text": "A bear that is literal."
+    },
+    {
+      "name": "The concept of love",
+      "text": "A concept that is love."
+    }
+  ]
+}
