@@ -1,0 +1,31 @@
+:root {
+  /* Colors */
+  --black: #000000;
+  --white: #ffffff;
+  --light-gray: #cccccc;
+  --mid-gray: #888888;
+  --action-blue: #007aff;
+  --destructive-red: #ff3b30;
+  --success-green: #34c759;
+  --warning-orange: #ff9500;
+  --highlight-purple: #af52de;
+  --attention-yellow: #ffcc00;
+
+  /* Spacing */
+  --space-unit: 8px;
+  --space-xs: calc(var(--space-unit) * 0.5);  /* 4px */
+  --space-sm: var(--space-unit);             /* 8px */
+  --space-md: calc(var(--space-unit) * 2);   /* 16px */
+  --space-lg: calc(var(--space-unit) * 3);   /* 24px */
+  --space-xl: calc(var(--space-unit) * 4);   /* 32px */
+
+  /* Borders */
+  --border-width: 2px;
+  --border-style: solid;
+  --border-color: var(--black);
+  --border: var(--border-width) var(--border-style) var(--border-color);
+
+  /* Shadows */
+  --shadow-offset: 4px;
+  --hard-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--black);
+}
