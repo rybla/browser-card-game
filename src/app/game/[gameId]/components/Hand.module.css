@@ -1,10 +1,28 @@
+/*
+  DIGITAL NEO-BRUTALISM DESIGN BLUEPRINT - HAND COMPONENT
+
+  This file styles the player's hand area in the game view.
+*/
+
+
 .hand {
-  border: 1px solid black;
-  padding: 1rem;
-  margin: 1rem;
+  background-color: var(--white);
+  border: var(--border);
+  padding: var(--space-md);
+}
+
+.hand h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 var(--space-md) 0;
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--black);
 }
 
 .cards {
   display: flex;
   flex-wrap: wrap;
+  gap: var(--space-md);
+  min-height: 100px; /* Ensure it's a droppable area even when empty */
 }

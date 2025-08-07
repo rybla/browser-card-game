@@ -1,15 +1,43 @@
+/*
+  DIGITAL NEO-BRUTALISM DESIGN BLUEPRINT - CARD COMPONENT
+
+  This file styles the individual cards used in the game.
+*/
+
+
 .card {
-  border: 1px solid black;
-  padding: 1rem;
-  margin: 0.5rem;
-  width: 150px;
-  height: 200px;
+  background-color: var(--white);
+  border: var(--border);
+  box-shadow: var(--hard-shadow);
+  padding: var(--space-md);
+  width: 180px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  cursor: grab;
+  transition: all 0.15s ease-out;
+}
+
+.card:active {
+  cursor: grabbing;
+  background-color: var(--light-gray);
+  box-shadow: none;
+  transform: translate(var(--shadow-offset), var(--shadow-offset));
 }
 
 .name {
-  font-weight: bold;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--mid-gray);
+  color: var(--black);
 }
 
 .text {
-  margin-top: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--black);
+  flex-grow: 1;
 }

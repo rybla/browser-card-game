@@ -1,0 +1,86 @@
+/*
+  DIGITAL NEO-BRUTALISM DESIGN BLUEPRINT
+
+  Core Principles:
+  - Honesty of Material: Structures like containers and grids are exposed and emphasized.
+  - Strong Hierarchy: Information is organized logically with clear visual dominance.
+  - Unapologetic Presence: Bold, hard shadows and high contrast create a solid, three-dimensional feel.
+  - Function Over Form: Aesthetics are derived directly from the function of components.
+
+  Key Elements:
+  - Shadows: Hard, black, 45-degree offset shadows with no blur (e.g., `box-shadow: 4px 4px 0px #000`).
+  - Corners: Sharp, 0px radius on all elements.
+  - Borders: Solid, 1px or 2px black or gray borders to define containers.
+  - Colors: High-contrast, limited palette. Stark neutrals for structure, vibrant accents for interaction.
+  - Typography: Bold, often uppercase text to establish clear hierarchy.
+  - Spacing: Rigid, consistent grid system (e.g., 8pt grid).
+*/
+
+
+.page {
+  background-color: var(--white);
+  color: var(--black);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xl);
+  min-height: 100vh;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  border-bottom: var(--border-width) solid var(--black);
+  padding-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.textarea {
+  width: 100%;
+  max-width: 600px;
+  min-height: 200px;
+  padding: var(--space-md);
+  font-size: 1.2rem;
+  background-color: var(--white);
+  border: var(--border);
+  border-radius: 0;
+  box-shadow: var(--hard-shadow);
+  transition: all 0.15s ease-out;
+  resize: vertical;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--action-blue);
+  box-shadow: 0 0 0 2px var(--action-blue);
+}
+
+.button {
+  background-color: var(--action-blue);
+  color: var(--white);
+  border: var(--border);
+  padding: var(--space-sm) var(--space-md);
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: var(--hard-shadow);
+  transition: all 0.15s ease-out;
+  align-self: center;
+}
+
+.button:hover {
+  box-shadow: none;
+  transform: translate(var(--shadow-offset), var(--shadow-offset));
+}
+
+.button:active {
+  background-color: var(--black);
+  color: var(--white);
+  box-shadow: none;
+  transform: translate(var(--shadow-offset), var(--shadow-offset));
+}

@@ -1,5 +1,30 @@
+/*
+  DIGITAL NEO-BRUTALISM DESIGN BLUEPRINT - DISCARD COMPONENT
+
+  This file styles the discard pile area in the game view.
+*/
+
+
 .discard {
-  border: 1px solid black;
-  padding: 1rem;
-  margin: 1rem;
+  background-color: var(--light-gray);
+  border: var(--border);
+  padding: var(--space-md);
+  text-align: center;
+  width: 150px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.discard h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 var(--space-sm) 0;
+}
+
+.discard div {
+  font-size: 1rem;
 }

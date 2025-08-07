@@ -1,5 +1,30 @@
+/*
+  DIGITAL NEO-BRUTALISM DESIGN BLUEPRINT - DECK COMPONENT
+
+  This file styles the deck area in the game view.
+*/
+
+
 .deck {
-  border: 1px solid black;
-  padding: 1rem;
-  margin: 1rem;
+  background-color: var(--light-gray);
+  border: var(--border);
+  padding: var(--space-md);
+  text-align: center;
+  width: 150px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.deck h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 var(--space-sm) 0;
+}
+
+.deck div {
+  font-size: 1rem;
 }

@@ -1,42 +1,102 @@
+/*
+  DIGITAL NEO-BRUTALISM DESIGN BLUEPRINT
+
+  Core Principles:
+  - Honesty of Material: Structures like containers and grids are exposed and emphasized.
+  - Strong Hierarchy: Information is organized logically with clear visual dominance.
+  - Unapologetic Presence: Bold, hard shadows and high contrast create a solid, three-dimensional feel.
+  - Function Over Form: Aesthetics are derived directly from the function of components.
+
+  Key Elements:
+  - Shadows: Hard, black, 45-degree offset shadows with no blur (e.g., `box-shadow: 4px 4px 0px #000`).
+  - Corners: Sharp, 0px radius on all elements.
+  - Borders: Solid, 1px or 2px black or gray borders to define containers.
+  - Colors: High-contrast, limited palette. Stark neutrals for structure, vibrant accents for interaction.
+  - Typography: Bold, often uppercase text to establish clear hierarchy.
+  - Spacing: Rigid, consistent grid system (e.g., 8pt grid).
+*/
+
+
 .page {
-  padding: 2rem;
+  background-color: var(--white);
+  color: var(--black);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xl);
+  min-height: 100vh;
 }
 
 .title {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  border-bottom: var(--border-width) solid var(--black);
+  padding-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
 }
 
 .error {
-  color: red;
-  margin-top: 1rem;
+  background-color: var(--destructive-red);
+  color: var(--white);
+  border: var(--border);
+  padding: var(--space-md);
+  width: 100%;
+  max-width: 600px;
+  font-weight: 700;
+  text-align: center;
 }
 
 .deck {
-  margin-top: 2rem;
+  width: 100%;
+  max-width: 800px;
+  border: var(--border);
+  padding: var(--space-lg);
+  box-shadow: var(--hard-shadow);
+  background-color: var(--white);
 }
 
 .deckName {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: var(--border);
 }
 
 .cardList {
   list-style: none;
   padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--space-lg);
 }
 
 .card {
-  border: 1px solid #ccc;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 0.5rem;
+  background-color: var(--white);
+  border: var(--border);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  box-shadow: var(--hard-shadow);
 }
 
 .cardName {
-  font-weight: bold;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--light-gray);
 }
 
 .cardText {
-  margin-top: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
 }
