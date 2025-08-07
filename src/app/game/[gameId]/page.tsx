@@ -97,7 +97,17 @@ export default function GamePage() {
             <div key={player.id} className={styles.player}>
               <div className={styles.playerName}>{player.name}</div>
               <Deck player={player} />
-              {/* TODO: Button that lets the player draw a card from the deck */}
+              <button
+                onClick={() => {
+                  const action: GameAction = {
+                    name: "DRAW_CARD",
+                    payload: {},
+                  };
+                  void server.performGameAction(gameId, playerId, action);
+                }}
+              >
+                Draw
+              </button>
               <Hand player={player} gameState={game} />
               <Table player={player} gameState={game} />
               <Discard player={player} />

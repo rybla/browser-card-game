@@ -98,6 +98,40 @@ export function updateGame(
         players: newPlayers,
       };
     }
+    case "DRAW_CARD": {
+      // Get the player who is drawing a card
+      const player = gameState.players.get(playerId);
+      if (!player) {
+        return gameState;
+      }
+
+      // Do nothing if the deck is empty
+      if (player.deck.length === 0) {
+        return gameState;
+      }
+
+      // Get the top card from the deck
+      const [cardToDraw, ...remainingDeck] = player.deck;
+
+      // Add the card to the player's hand
+      const newHand = [...player.hand, cardToDraw];
+
+      // Create the new player object
+      const newPlayer: Player = {
+        ...player,
+        deck: remainingDeck,
+        hand: newHand,
+      };
+
+      // Update the players map
+      const newPlayers = new Map(gameState.players);
+      newPlayers.set(playerId, newPlayer);
+
+      return {
+        ...gameState,
+        players: newPlayers,
+      };
+    }
     default:
       return gameState;
   }
