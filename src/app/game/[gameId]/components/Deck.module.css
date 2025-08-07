@@ -1,5 +1,18 @@
 .deck {
-  border: 1px solid black;
-  padding: 1rem;
-  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-s);
+  padding: var(--spacing-m);
+  background-color: var(--color-white);
+  border: var(--border-width-m) solid var(--color-black);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-hard);
+  width: 150px;
+}
+
+.deck h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  text-transform: uppercase;
 }

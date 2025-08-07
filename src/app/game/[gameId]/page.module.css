@@ -2,28 +2,93 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  padding: 1rem;
+  gap: var(--spacing-l);
+  padding: var(--spacing-l);
+  background-color: var(--color-light-gray);
 }
 
 .title {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: bold;
-}
-
-.description {
-  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: var(--color-black);
 }
 
 .players {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  align-items: center;
+  gap: var(--spacing-xl);
+  width: 100%;
 }
 
-.playerId {
-  padding: 0.25rem 0.5rem;
-  background-color: #eee;
-  border-radius: 0.25rem;
+.player {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-l);
+  padding: var(--spacing-l);
+  border: var(--border-width-m) solid var(--color-black);
+  background-color: var(--color-white);
+}
+
+.playerName {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  align-self: center;
+}
+
+.chatContainer {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+  margin-top: var(--spacing-xl);
+}
+
+.chatInput {
+  display: flex;
+  gap: var(--spacing-m);
+}
+
+.chatInput input {
+  flex-grow: 1;
+  padding: var(--spacing-s) var(--spacing-m);
+  border: var(--border-width-m) solid var(--color-black);
+  border-radius: var(--border-radius);
+  background-color: var(--color-white);
+  font-family: var(--font-family-sans);
+  font-size: 1rem;
+}
+
+.chatInput input:focus {
+  outline: none;
+  border-color: var(--color-action-blue);
+  box-shadow: 0 0 0 var(--border-width-m) var(--color-action-blue);
+}
+
+.chatInput button,
+.player button {
+  padding: var(--spacing-s) var(--spacing-m);
+  background-color: var(--color-action-blue);
+  color: var(--color-white);
+  border: var(--border-width-m) solid var(--color-black);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-hard);
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+.chatInput button:hover,
+.player button:hover {
+  box-shadow: none;
+  transform: translate(4px, 4px);
+}
+
+.chatInput button:active,
+.player button:active {
+  box-shadow: none;
+  transform: translate(4px, 4px);
 }
