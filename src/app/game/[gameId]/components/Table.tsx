@@ -24,7 +24,7 @@ export function Table({
             if (!card) {
               return null;
             }
-            return <CardView key={card.id} card={card} />;
+            return <CardView key={card.id} card={card} zone="table" />;
           })}
         </div>
       </SortableContext>

@@ -24,7 +24,7 @@ export function Hand({
             if (!card) {
               return null;
             }
-            return <CardView key={card.id} card={card} />;
+            return <CardView key={card.id} card={card} zone="hand" />;
           })}
         </div>
       </SortableContext>
