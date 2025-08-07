@@ -2,10 +2,16 @@ import { Card } from "@/engine/deck";
 import styles from "./Card.module.css";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import { CardZone } from "@/engine/types";
 
-export function CardView({ card }: { card: Card }) {
+export function CardView({ card, zone }: { card: Card; zone: CardZone }) {
   const { attributes, listeners, setNodeRef, transform, transition } =
-    useSortable({ id: card.id });
+    useSortable({
+      id: card.id,
+      data: {
+        zone,
+      },
+    });
 
   const style = {
     transform: CSS.Transform.toString(transform),
