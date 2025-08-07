@@ -24,6 +24,7 @@ export default function RootLayout({
           <div className={styles.link}>
             <Link href="/">Lobby</Link>
             <Link href="/new-game">New Game</Link>
+            <Link href="/deck">Deck</Link>
           </div>
         </header>
         {children}

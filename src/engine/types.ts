@@ -77,15 +77,6 @@ export type Player = {
   discard: CardId[];
 };
 
-export type CardId = string;
+import { Card } from "./deck";
 
-/**
- * A card in the game
- */
-export type Card = {
-  id: CardId;
-  /** The name of the card */
-  name: string;
-  /** The text on the card */
-  text: string;
-};
+export type CardId = string;

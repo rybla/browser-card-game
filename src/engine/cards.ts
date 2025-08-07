@@ -1,4 +1,4 @@
-import { Card } from "./types";
+import { Card } from "./deck";
 
 /**
  * A simple set of cards to be used in the game
