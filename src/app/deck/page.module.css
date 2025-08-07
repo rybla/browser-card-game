@@ -1,0 +1,42 @@
+.page {
+  padding: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.error {
+  color: red;
+  margin-top: 1rem;
+}
+
+.deck {
+  margin-top: 2rem;
+}
+
+.deckName {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.cardList {
+  list-style: none;
+  padding: 0;
+}
+
+.card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+}
+
+.cardName {
+  font-weight: bold;
+}
+
+.cardText {
+  margin-top: 0.5rem;
+}
